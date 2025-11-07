@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins', sans-serif;
+  overflow:hidden;
+  background:linear-gradient(180deg,#ffe6f2,#ffd6e0,#ffb6c1);
+}
+.page{
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center;
+  opacity:0; transform:translateY(30px);
+  transition:all 1s ease;
+  padding:20px;
+}
+.page.active{
+  opacity:1;
+  transform:translateY(0);
+  z-index:2;
+}
+h1{
+  font-size:2.4rem;
+  color:#ff5c8a;
+  font-family:'Pacifico', cursive;
+  text-shadow:0 0 12px rgba(255,105,180,0.7);
+  margin-bottom:20px;
+}
+p{
+  font-size:1.2rem;
+  max-width:650px;
+  line-height:1.6;
+  margin-bottom:25px;
+  color:#4d0026;
+}
+img{
+  width:250px; border-radius:15px;
+  margin:15px 0;
+  box-shadow:0 0 20px rgba(255,182,193,0.7);
+  transition:transform 0.8s ease;
+}
+img:hover{transform:scale(1.05);}
+button{
+  background:#ff5c8a; color:white; border:none;
+  padding:12px 40px; border-radius:30px; font-size:1rem;
+  cursor:pointer; transition:all 0.3s ease;
+  box-shadow:0 4px 15px rgba(255,105,180,0.3);
+}
+button:hover{
+  background:#ff2e63;
+  box-shadow:0 6px 20px rgba(255,105,180,0.5);
+}
+.heart{position:absolute; font-size:22px; animation:float 8s linear infinite; opacity:0.7; color:#ff8fab;}
+@keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-800px);opacity:0;}}
+#proposal h1{text-shadow:0 0 15px rgba(255,150,190,0.8);}
+.teddy-container{position:relative;width:300px;height:300px;margin:20px auto;}
+.teddy{width:100%;transform:translateY(200px) scale(0);animation:teddyEnter 1.5s forwards,teddyWiggle 1.2s 1.5s infinite alternate;}
+@keyframes teddyEnter{to{transform:translateY(0) scale(1);}}
+@keyframes teddyWiggle{0%{transform:rotate(0deg);}25%{transform:rotate(5deg);}50%{transform:rotate(-5deg);}75%{transform:rotate(5deg);}100%{transform:rotate(0deg);}}
+footer{position:absolute;bottom:10px;width:100%;text-align:center;color:#660033;font-size:0.9rem;}
+
+/* Music button */
+#musicBtn{
+  position:fixed;
+  top:20px; right:20px;
+  padding:12px 18px;
+  border-radius:50px;
+  background:#ff5c8a;
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-size:1rem;
+  z-index:10;
+  box-shadow:0 4px 15px rgba(255,105,180,0.3);
+  transition:all 0.3s ease;
+}
+#musicBtn:hover{
+  background:#ff2e63;
+  box-shadow:0 6px 20px rgba(255,105,180,0.5);
+}
+</style>
+</head>
+<body>
+
+<!-- Music -->
+<audio id="bgMusic" loop src="romantic.mp3"></audio>
+<button id="musicBtn">▶️ Play Music</button>
+
+<div id="decor"></div>
+
+<!-- Slide 1 -->
+<div class="page active" id="page1">
+  <h1>Hey My Love 💕</h1>
+  <img src="your-photo1.jpg" alt="Us">
+  <p>Every day with you is magic. I’m sorry for hurting you. You are my sunshine, my heart, my everything.</p>
+  <button onclick="nextPage(2)">Next →</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="page" id="page2">
+  <h1>Our Lovely Memory 1 📸</h1>
+  <img src="your-photo2.jpg" alt="Memory1">
+  <p>Remember this moment? I cherish it forever. 💖</p>
+  <button onclick="nextPage(3)">Next →</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="page" id="page3">
+  <h1>Our Lovely Memory 2 🌸</h1>
+  <img src="your-photo3.jpg" alt="Memory2">
+  <p>Another memory that makes me smile just thinking about you. 💞</p>
+  <button onclick="nextPage(4)">Next →</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="page" id="page4">
+  <h1>My Apology 💌</h1>
+  <img src="your-photo4.jpg" alt="Apology">
+  <p>I’m truly sorry, sweetheart. I promise to listen, to care, and to love you every day.</p>
+  <button onclick="nextPage(5)">Next →</button>
+</div>
+
+<!-- Slide 5 -->
+<div class="page" id="page5">
+  <h1>My Promise 🌸</h1>
+  <img src="your-photo5.jpg" alt="Promise">
+  <p>I’ll protect our love, cherish you deeply, and never let ego come between us again.</p>
+  <button onclick="nextPage(6)">Next →</button>
+</div>
+
+<!-- Slide 6 -->
+<div class="page" id="page6">
+  <h1>Cute Teddy Slide 🧸</h1>
+  <img src="your-photo6.jpg" alt="Teddy">
+  <p>If I could hug you right now, I’d never let go. You’re my comfort, my warmth, my happiness.</p>
+  <button onclick="nextPage(7)">Next →</button>
+</div>
+
+<!-- Slide 7 -->
+<div class="page" id="page7">
+  <h1>Fun Moment 😄</h1>
+  <img src="your-photo7.jpg" alt="Funny">
+  <p>Remember this funny moment? You always make me laugh. 💖</p>
+  <button onclick="nextPage(8)">Next →</button>
+</div>
+
+<!-- Slide 8 -->
+<div class="page" id="page8">
+  <h1>Something Special Coming... ✨</h1>
+  <img src="your-photo8.jpg" alt="Excitement">
+  <p>Close your eyes… big surprise is coming! 💞</p>
+  <button onclick="nextPage(9)">Next →</button>
+</div>
+
+<!-- Slide 9 - Proposal -->
+<div class="page" id="page9">
+  <div id="proposal">
+    <h1>I Love You ❤️</h1>
+    <div id="buttons">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 😜</button>
+    </div>
+  </div>
+
+  <div id="note" style="display:none; opacity:0; transition:opacity 1s;">
+    <h1>You Said Yes! 💞</h1>
+    <div class="teddy-container">
+      <img src="teddy.png" alt="Teddy Hugging Heart" class="teddy">
+    </div>
+    <p>You just made my heart smile again! I’ll keep saying “I love you” forever, because you’re my whole world 🌍💖</p>
+    <button onclick="restart()">↩ Start Again</button>
+  </div>
+</div>
+
+<!-- Slide 10 -->
+<div class="page" id="page10">
+  <h1>Forever Together 💖</h1>
+  <img src="your-photo9.jpg" alt="Together">
+  <p>Every moment with you is priceless. I love you endlessly! 💕</p>
+  <button onclick="restart()">Restart</button>
+</div>
+
+<footer>Made with Love 💕 Just for You</footer>
+
+<script>
+let current=1;
+function nextPage(num){
+  document.getElementById(`page${current}`).classList.remove("active");
+  current=num;
+  document.getElementById(`page${current}`).classList.add("active");
+}
+function restart(){
+  document.getElementById(`page${current}`).classList.remove("active");
+  current=1;
+  document.getElementById("page1").classList.add("active");
+}
+
+/* Floating hearts */
+const decor=document.getElementById("decor");
+function createHearts(){
+  const el=document.createElement("div");
+  el.classList.add("heart");
+  el.innerHTML="💖";
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDuration=5+Math.random()*5+"s";
+  decor.appendChild(el);
+  setTimeout(()=>el.remove(),10000);
+}
+setInterval(createHearts,500);
+
+/* Proposal buttons */
+const noBtn=document.getElementById('noBtn');
+const yesBtn=document.getElementById('yesBtn');
+const proposal=document.getElementById('proposal');
+const note=document.getElementById('note');
+
+noBtn.addEventListener('mouseover',()=>{
+  const i=Math.random()*(window.innerWidth-100);
+  const j=Math.random()*(window.innerHeight-100);
+  noBtn.style.position='absolute';
+  noBtn.style.left=i+'px';
+  noBtn.style.top=j+'px';
+  const clone=noBtn.cloneNode(true);
+  clone.innerText="No 😝";
+  clone.style.left=Math.random()*90+"vw";
+  clone.style.top=Math.random()*80+"vh";
+  clone.style.position="absolute";
+  document.getElementById("buttons").appendChild(clone);
+});
+
+yesBtn.addEventListener('click',()=>{
+  proposal.style.display='none';
+  note.style.display='block';
+  setTimeout(()=>{note.style.opacity=1;},100);
+});
+
+/* Music button */
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+let musicPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+  if(!musicPlaying){
+    bgMusic.play().catch(()=>{}); // play music
+    musicBtn.innerText = "⏸️ Pause Music";
+    musicPlaying = true;
+  } else {
+    bgMusic.pause(); // pause music
+    musicBtn.innerText = "▶️ Play Music";
+    musicPlaying = false;
+  }
+});
+</script>
+
+</body>
+</html>
+
